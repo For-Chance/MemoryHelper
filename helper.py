@@ -20,7 +20,7 @@ def helper():
     print("\tsort:\t按index排序")
     print("\ts,_:\t显示问题，后接正则表达式（可省略），与记忆次数")
     print("\tc:\t记忆库times清0")
-    print("\tcc:\t删除记忆库")
+    print("\tclear:\t删除记忆库")
     print("")
     print("\treback:\t回退")
     print("")
@@ -62,8 +62,7 @@ while 1:
         print(tabulate(flt, headers = 'keys', tablefmt = 'psql'))
     elif order == "c":
         df.times = 0
-    elif order == "cc":
-        print()
+    elif order == "clear":
         df = pd.DataFrame({"question": [], "times": []})
     elif order[0] == "m":
         print("进入记忆模式！")
