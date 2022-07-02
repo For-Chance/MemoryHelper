@@ -7,6 +7,7 @@ def helper():
     print("\th:\t帮助")
     print("\tq:\t保存退出")
     print("\t!q:\t不保存退出")
+    print("\tsave:\t主动保存")
     print("\t+,_,_:\t加上排序与问题")
     print("\t-,_:\t根据排序删除问题")
     print("\tsort:\t按index排序")
@@ -19,12 +20,15 @@ def helper():
     print("\t\tqm:\t退出记忆模式")
     print("\t\tv:\t这个问题已经记住")
 
-
 print("欢迎使用辅助记忆工具!")
 if "df.csv" in os.listdir("./"):
     df = pd.read_csv("df.csv", index_col="Unnamed: 0")
 else:
     df = pd.DataFrame({"question": [], "times": []})
+
+def save(df=df):
+    df.to_csv("df.csv")
+
 while 1:
     print(">>>", end="")
     order = input()
@@ -33,12 +37,14 @@ while 1:
     if order == "h":
         helper()
     elif order == "q":
+        save()
         print("保存成功，成功退出记忆工具！")
-        df.to_csv("df.csv")
         break
     elif order == "!q":
         print("不保存，成功退出记忆工具！")
         break
+    elif order == "save":
+        save()
     elif order[0] == "+":
         (index, question) = tuple(order[2:].split(","))
         df.loc[index] = [question, 0]
