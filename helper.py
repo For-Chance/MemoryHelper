@@ -5,7 +5,8 @@ import os
 def helper():
     print("指令说明：")
     print("\th:\t帮助")
-    print("\tq:\t退出")
+    print("\tq:\t保存退出")
+    print("\t!q:\t不保存退出")
     print("\t+,_,_:\t加上排序与问题")
     print("\t-,_:\t根据排序删除问题")
     print("\tsort:\t按index排序")
@@ -32,8 +33,11 @@ while 1:
     if order == "h":
         helper()
     elif order == "q":
-        print("成功退出记忆工具！")
+        print("保存成功，成功退出记忆工具！")
         df.to_csv("df.csv")
+        break
+    elif order == "!q":
+        print("不保存，成功退出记忆工具！")
         break
     elif order[0] == "+":
         (index, question) = tuple(order[2:].split(","))
