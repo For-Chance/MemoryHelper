@@ -2,6 +2,11 @@ from tabulate import tabulate
 import pandas as pd
 import os
 
+print("欢迎使用辅助记忆工具!")
+if "df.csv" in os.listdir("./"):
+    df = pd.read_csv("df.csv", index_col="Unnamed: 0")
+else:
+    df = pd.DataFrame({"question": [], "times": []})
 
 def helper():
     print("指令说明：")
@@ -9,6 +14,7 @@ def helper():
     print("\tq:\t保存退出")
     print("\t!q:\t不保存退出")
     print("\tsave:\t主动保存")
+    print("")
     print("\t+,_,_:\t加上排序与问题")
     print("\t-,_:\t根据排序删除问题")
     print("\tsort:\t按index排序")
@@ -16,30 +22,12 @@ def helper():
     print("\tc:\t记忆库times清0")
     print("\tcc:\t删除记忆库")
     print("")
+    print("\treback:\t回退")
+    print("")
     print("\tm,_,_:\t开始记忆模式,使用正则表达式索引,和记忆掩码")
     print("\t\t按enter:\t下一条问题")
     print("\t\tqm:\t退出记忆模式")
     print("\t\tv:\t这个问题已经记住")
-
-print("欢迎使用辅助记忆工具!")
-if "df.csv" in os.listdir("./"):
-    df = pd.read_csv("df.csv", index_col="Unnamed: 0")
-else:
-    df = pd.DataFrame({"question": [], "times": []})
-
-def save(df=df):
-    df.to_csv("df.csv")
-    
-# #  pd的输出设置
-pd.set_option("display.max_colwidth",100)
-pd.set_option('display.colheader_justify', 'left')
-
-def left_align(df: pd.DataFrame):
-    left_aligned_df = df.style.set_properties(**{'text-align': 'left'})
-    left_aligned_df = left_aligned_df.set_table_styles(
-        [dict(selector='th', props=[('text-align', 'left')])]
-    )
-    return left_aligned_df
 
 while 1:
     print(">>>", end="")
@@ -49,14 +37,14 @@ while 1:
     if order == "h":
         helper()
     elif order == "q":
-        save()
+        df.to_csv("df.csv")
         print("保存成功，成功退出记忆工具！")
         break
     elif order == "!q":
         print("不保存，成功退出记忆工具！")
         break
     elif order == "save":
-        save()
+        df.to_csv("df.csv")
     elif order[0] == "+":
         (index, question) = tuple(order[2:].split(","))
         df.loc[index] = [question, 0]
