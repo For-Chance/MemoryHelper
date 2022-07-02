@@ -6,9 +6,10 @@ def helper():
     print("指令说明：")
     print("\th:\t帮助")
     print("\tq:\t退出")
-    print("\t+_+_:\t加上问题")
-    print("\t-_:\t删除问题")
+    print("\t+_+_:\t加上排序与问题")
+    print("\t-_:\t根据排序删除问题")
     print("\ts:\t显示所有问题，与记忆次数")
+    print("\tsort:\t按index排序")
     print("\tc:\t记忆库times清0")
     print("\tcc:\t删除记忆库")
     print("")
@@ -42,6 +43,8 @@ while 1:
         df = df.drop(index)
     elif order == "s":
         print(df)
+    elif order == "sort":
+        df = df.sort_index()
     elif order == "c":
         df.times = 0
     elif order == "cc":
