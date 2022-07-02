@@ -56,10 +56,10 @@ while 1:
         if len(df) == 0:
             print("error:记忆库无内容！")
             continue
-        if len(df[df["times"] <= mask]) == 0:
-            print("error:记忆库无满足条件的记忆内容！")
-            continue
         while 1:
+            if len(df[df["times"] <= mask]) == 0:
+                print("error:记忆库无满足条件的记忆内容！")
+                break
             qs = df.sample(n=1)
             if qs.times.iloc[0] > mask:
                 continue
