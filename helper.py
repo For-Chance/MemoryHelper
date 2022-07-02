@@ -67,7 +67,7 @@ while 1:
         df = pd.DataFrame({"question": [], "times": []})
     elif order[0] == "m":
         print("进入记忆模式！")
-        mask = 0
+        mask = 1
         regStr = ".*"
         if len(order) > 2:
             maskNreg = order[2:].split(',')
@@ -75,7 +75,7 @@ while 1:
                 regStr = maskNreg[0] if maskNreg[0] != '' else ".*"
             elif len(maskNreg) == 2:
                 regStr = maskNreg[0] if maskNreg[0] != '' else ".*"
-                mask = eval(maskNreg[1]) if maskNreg[1] != '' else 0
+                mask = eval(maskNreg[1]) if maskNreg[1] != '' else 1
             else:
                 print("Error:m指令出错!")
                 continue
@@ -83,7 +83,7 @@ while 1:
             print("Error:记忆库无内容！")
             continue
         while 1:
-            flt = df[df.times <= mask].filter(regex=regStr,axis=0)
+            flt = df[df.times < mask].filter(regex=regStr,axis=0)
             if len(flt) == 0:
                 print("Error:记忆库无满足条件的记忆内容！")
                 break
