@@ -1,3 +1,4 @@
+from tabulate import tabulate
 import pandas as pd
 import os
 
@@ -28,6 +29,17 @@ else:
 
 def save(df=df):
     df.to_csv("df.csv")
+    
+# #  pd的输出设置
+pd.set_option("display.max_colwidth",100)
+pd.set_option('display.colheader_justify', 'left')
+
+def left_align(df: pd.DataFrame):
+    left_aligned_df = df.style.set_properties(**{'text-align': 'left'})
+    left_aligned_df = left_aligned_df.set_table_styles(
+        [dict(selector='th', props=[('text-align', 'left')])]
+    )
+    return left_aligned_df
 
 while 1:
     print(">>>", end="")
@@ -57,10 +69,13 @@ while 1:
         regStr = ".*"
         if len(order) > 2 and order[1] == ',':
             regStr = order[2:]
-        print(df.filter(regex=regStr, axis=0))
+        # make print left aglin
+        flt = df.filter(regex=regStr, axis=0)
+        print(tabulate(flt, headers = 'keys', tablefmt = 'psql'))
     elif order == "c":
         df.times = 0
     elif order == "cc":
+        print()
         df = pd.DataFrame({"question": [], "times": []})
     elif order[0] == "m":
         print("进入记忆模式！")
