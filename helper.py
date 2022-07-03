@@ -15,8 +15,8 @@ def helper():
     print("\t!q:\t不保存退出")
     print("\tsave:\t主动保存")
     print("")
-    print("\t+,_,_:\t加上排序与问题")
-    print("\t-,_:\t根据排序删除问题")
+    print("\t+,_,_:\t加上index与问题")
+    print("\t-,_:\t根据index删除问题")
     print("\tsort:\t按index排序")
     print("\ts,_:\t显示问题，后接正则表达式（可省略），与记忆次数")
     print("\tc:\t记忆库times清0")
@@ -25,9 +25,9 @@ def helper():
     print("\treback:\t回退")
     print("")
     print("\tm,_,_:\t开始记忆模式,使用正则表达式索引,和记忆掩码")
-    print("\t\t按enter:\t下一条问题")
     print("\t\tqm:\t退出记忆模式")
     print("\t\tv:\t这个问题已经记住")
+    print("\t\t其他:\t没记住，跳向下一条问题")
 
 while 1:
     print(">>>", end="")
