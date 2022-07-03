@@ -87,7 +87,7 @@ while 1:
                 print("Error:记忆库无满足条件的记忆内容！")
                 break
             qs = flt.sample(n=1)
-            print(f"?:\t{qs.question.iloc[0]}\t", end="")
+            print(f"?:{qs.index[0]}\t{qs.question.iloc[0]}\t", end="")
             m_order = input()
             if m_order == "qm":
                 print("退出记忆模式！")
