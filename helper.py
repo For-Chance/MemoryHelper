@@ -4,7 +4,7 @@ import os
 
 print("欢迎使用辅助记忆工具!")
 if "df.csv" in os.listdir("./"):
-    df = pd.read_csv("df.csv", index_col="Unnamed: 0")
+    df = pd.read_csv("./df.csv", index_col="Unnamed: 0")
 else:
     df = pd.DataFrame({"question": [], "times": []})
 
@@ -37,14 +37,14 @@ while 1:
     if order == "h":
         helper()
     elif order == "q":
-        df.to_csv("df.csv")
+        df.to_csv("./df.csv")
         print("保存成功，成功退出记忆工具！")
         break
     elif order == "!q":
         print("不保存，成功退出记忆工具！")
         break
     elif order == "save":
-        df.to_csv("df.csv")
+        df.to_csv("./df.csv")
     elif order[0] == "+":
         (index, question) = tuple(order[2:].split(","))
         df.loc[index] = [question, 0]
