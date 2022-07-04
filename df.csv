@@ -1,0 +1,33 @@
+,question,times
+1,自我介绍,0
+2.1,为什么你想来中山大学？,0
+2.2,研究生期间你的计划？,0
+2.3,你对我们有什么想问的吗？,0
+4.1,什么是曼哈顿距离，什么是欧氏距离，这两者有什么区别？,2
+4.2,讲一下深度学习领域目前的热点和难点,2
+4.3,讲讲什么是卷积，什么是卷积神经网络,2
+4.4,机器学习和深度学习的差别联系,2
+4.5,梯度下降法的算法过程,2
+5.1,编译型和解释型语言的区别,2
+6.1,六大排序算法的时间复杂度、空间复杂度和稳定性,0
+6.2,为什么要稳定排序？,0
+6.3,堆实现及应用,0
+6.4,Dijkstra,1
+6.5,最小生成树算法,0
+6.6,邻接表和邻接矩阵,1
+6.7,哪些图算法用到了动态规划思想,0
+6.8,判断链表是否有环,0
+6.9,二叉排序树和平衡二叉树,0
+en_1,Introduce youself,0
+en_2.1,Why do you want to come to Sun Yat-sen University?,0
+en_2.10,Do you have any hobbies?,0
+en_2.11,What qualifications are needed in order to do your job well?,0
+en_2.2,What‘s your plan in the graduate study?,0
+en_2.3,Talk about your hometown,0
+en_2.4,Talk about your family,0
+en_2.5,Talk about your university,0
+en_2.6,What's your dream job?,0
+en_2.7,Why do you want to study computer science in the graduate stage?,0
+en_2.8,What's your weakness?,0
+en_2.9,What‘s your strength?,0
+en_3.1,Talk about the experience of MCM,0
