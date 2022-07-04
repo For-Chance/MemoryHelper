@@ -57,7 +57,6 @@ while 1:
         regStr = ".*"
         if len(order) > 2 and order[1] == ',':
             regStr = order[2:]
-        # make print left aglin
         flt = df.filter(regex=regStr, axis=0)
         print(tabulate(flt, headers = 'keys', tablefmt = 'psql'))
     elif order == "c":
